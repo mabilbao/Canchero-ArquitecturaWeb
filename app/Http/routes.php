@@ -11,9 +11,19 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+//Route::get('/', 'WelcomeController@index');
+
+Route::any('/google', function(){
+	return Redirect::to("http://google.com");
+});
 
 Route::get('home', 'HomeController@index');
+
+//My routes
+Route::get('players/add', "PlayerController@add");
+
+
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

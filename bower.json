@@ -1,0 +1,17 @@
+{
+  "name": "arq",
+  "version": "0.0.1",
+  "authors": [
+    "mabilbao <martin@shifteight.com>"
+  ],
+  "description": "Proyecto para arquitectura web",
+  "main": "public/propio",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "jquery-ui": "~1.11.3"
+  }
+}
