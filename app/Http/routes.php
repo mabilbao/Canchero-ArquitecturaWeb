@@ -11,7 +11,7 @@
 |
 */
 
-//Route::get('/', 'WelcomeController@index');
+Route::get('/', 'WelcomeController@index');
 
 Route::any('/google', function(){
 	return Redirect::to("http://google.com");
@@ -20,7 +20,7 @@ Route::any('/google', function(){
 Route::get('home', 'HomeController@index');
 
 //My routes
-Route::get('players/add', "PlayerController@add");
+Route::get('player/add', "PlayerController@add");
 
 
 

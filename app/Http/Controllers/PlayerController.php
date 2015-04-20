@@ -4,10 +4,7 @@ class PlayerController extends Controller {
 
     public function add()
     {
-        var_dump("Hola mundo!");
-
-
-//        return \View::make();
+        return \View::make("player/add");
     }
 
 }
