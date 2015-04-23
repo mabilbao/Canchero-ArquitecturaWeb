@@ -14,6 +14,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <input name="file" type="file" value="upload" id="file" />
+                <img src="" class="img-circle img-responsive" id="profile-photo" alt="Responsive image">
             </div>
         </div>
         <div class="col-lg-6">
@@ -46,3 +47,7 @@
 </div>
 
 @section("javascript")
+    <script src="/bower/jquery/jquery.js"></script>
+    <script src="/bower/jquery/jquery.min.js"></script>
+
+    <script src="/propio/js/player/add.js"></script>
