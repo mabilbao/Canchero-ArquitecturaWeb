@@ -3,7 +3,6 @@
 @section("content")
 
 <div class="container">
-
     <div class="row">
         <div class="col-lg-12 text-center title">
             <h1>Agrega tu jugador!</h1>
@@ -56,8 +55,5 @@
 @endsection
 
 @section("javascript")
-    {{--<script src="/bower/jquery/jquery.js"></script>--}}
-    {{--<script src="/bower/jquery/jquery.min.js"></script>--}}
-
     <script src="/propio/js/player/add.js"></script>
 @endsection

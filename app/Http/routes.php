@@ -11,19 +11,17 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+//My routes
 
-Route::any('/google', function(){
-	return Redirect::to("http://google.com");
+Route::any('/', 'WelcomeController@index');
+
+Route::group(array('prefix'=>'player'),function() {
+    Route::any('/add', "PlayerController@add");
 });
 
+/* Necesitamos revisar de que se trata esto dado que aparecio en la version 5.0 de laravel*/
+//Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
-
-//My routes
-Route::get('player/add', "PlayerController@add");
-
-
-
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
