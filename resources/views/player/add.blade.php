@@ -5,7 +5,7 @@
 <div class="container">
 
     <div class="row">
-        <div class="col-lg-12 text-center">
+        <div class="col-lg-12 text-center title">
             <h1>Agrega tu jugador!</h1>
         </div>
     </div>
@@ -42,12 +42,22 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="edad">Edad:*</label>
+                        <input type="date" name="edad" class="form-control">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+@endsection
 
 @section("javascript")
-    <script src="/bower/jquery/jquery.js"></script>
-    <script src="/bower/jquery/jquery.min.js"></script>
+    {{--<script src="/bower/jquery/jquery.js"></script>--}}
+    {{--<script src="/bower/jquery/jquery.min.js"></script>--}}
 
     <script src="/propio/js/player/add.js"></script>
+@endsection
