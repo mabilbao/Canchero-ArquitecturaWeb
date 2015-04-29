@@ -20,7 +20,6 @@ Route::group(array('prefix'=>'player'),function() {
 });
 
 /* Necesitamos revisar de que se trata esto dado que aparecio en la version 5.0 de laravel*/
-//Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 
 Route::controllers([

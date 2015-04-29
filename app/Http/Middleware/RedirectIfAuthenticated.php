@@ -24,7 +24,7 @@ class RedirectIfAuthenticated {
 		$this->auth = $auth;
 	}
 
-	/**
+	/**    return Redirect::to("/");
 	 * Handle an incoming request.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
