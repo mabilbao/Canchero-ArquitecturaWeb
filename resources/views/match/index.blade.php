@@ -13,7 +13,7 @@
             <div class="col-lg-6">
                 <div class="form-group">
                     <label>Tipo de Cancha:*</label>
-                    <select name="tamano_cancha" class="form-control">
+                    <select name="tamano_cancha" id="tamano_cancha" class="form-control">
                         @foreach( $tamano_cancha as $keytc => $valuetc )
                             <option value="{{$keytc}}">{{$valuetc}}</option>
                         @endforeach
@@ -33,26 +33,43 @@
         </div>
         <div class="row">
             <div class="col-lg-1"></div>
-            <div class="col-lg-4 equipo">
+            <div class="col-lg-4 equipo equipo-1">
                 <div class="form-group">
-                    <label>Jugadores: (Maximo 5)</label>
+                    <label>Jugadores: (Maximo <span class="label_tamano">5</span>)</label>
                     <a href="javascript:;" class="form-control btn btn-success agregarJugador"
                        data-toggle="modal" data-target="#myModal">Agregar Jugador</a>
                 </div>
-                <div class="jugadores-agregados"  style="border: double; height: 250px">
+                <div class="jugadores-agregados" data-color="btn-success" style="border: double; height: 200px">
                 </div>
             </div>
             <div class="col-lg-2"></div>
-            <div class="col-lg-4 equipo">
+            <div class="col-lg-4 equipo equipo-2">
                 <div class="form-group">
-                    <label>Jugadores: (Maximo 5)</label>
+                    <label>Jugadores: (Maximo <span class="label_tamano">5</span>)</label>
                     <a href="javascript:;" class="form-control btn btn-danger agregarJugador"
                        data-toggle="modal" data-target="#myModal">Agregar Jugador</a>
                 </div>
-                <div class="jugadores-agregados" style="border: double; height: 250px">
+                <div class="jugadores-agregados" data-color="btn-danger" style="border: double; height: 200px">
                 </div>
             </div>
             <div class="col-lg-1"></div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label>Ingrese la direccion de la cancha:</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <button type="submit" value="" class="btn btn-primary">Generar Partido!</button>
+            </div>
         </div>
 
         <!-- Modal -->
