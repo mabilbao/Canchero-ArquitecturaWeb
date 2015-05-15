@@ -1,8 +1,15 @@
 var Match = {
 
+    equipo: null,
+
     init : function(){
+        $('.container').on('click', '.agregarJugador', Match.verificarAgregado);
         $('.container').on('click', '.guardar-jugador-simple', Match.agregarJugador);
         $('.container').on('click', '.cancelar-jugador-simple', Match.limpiarModal);
+    },
+
+    verificarAgregado : function (){
+        Match.equipo = $(this).parents(".equipo").find(".jugadores-agregados");
     },
 
     agregarJugador : function(){
@@ -19,8 +26,13 @@ var Match = {
             }else{
                 nombreFinal = apodo;
             }
-            var jugador = "<p class=\"bg-primary\">" + nombreFinal + "</p>";
-            $(".jugadores-agregados").append(jugador);
+            var jugador = "<p class=\"bg-primary text-center\">" + nombreFinal + "</p>";
+
+            Match.equipo.append(jugador);
+
+            if (Match.equipo.find("p").size() == 5 ){
+                Match.equipo.parents(".equipo").find(".agregarJugador").attr("disabled","disabled");
+            }
 
             Match.limpiarModal();
         }

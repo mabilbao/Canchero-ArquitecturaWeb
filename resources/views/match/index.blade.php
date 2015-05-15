@@ -32,19 +32,27 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4 equipo">
                 <div class="form-group">
-                    <label>Jugadores: (Maximo 10)</label>
-                    <a href="javascript:;" class="form-control btn btn-success"
-                       id="agregarJugador" data-toggle="modal" data-target="#myModal">Agregar Jugador</a>
+                    <label>Jugadores: (Maximo 5)</label>
+                    <a href="javascript:;" class="form-control btn btn-success agregarJugador"
+                       data-toggle="modal" data-target="#myModal">Agregar Jugador</a>
                 </div>
-                <div class="jugadores-agregados">
+                <div class="jugadores-agregados"  style="border: double; height: 250px">
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-4 equipo">
                 <div class="form-group">
+                    <label>Jugadores: (Maximo 5)</label>
+                    <a href="javascript:;" class="form-control btn btn-danger agregarJugador"
+                       data-toggle="modal" data-target="#myModal">Agregar Jugador</a>
+                </div>
+                <div class="jugadores-agregados" style="border: double; height: 250px">
                 </div>
             </div>
+            <div class="col-lg-1"></div>
         </div>
 
         <!-- Modal -->
