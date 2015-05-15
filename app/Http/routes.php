@@ -15,6 +15,11 @@
 
 Route::any('/', 'WelcomeController@index');
 
+Route::group(array('prefix'=>'match'),function() {
+    Route::any('/', "MatchController@match");
+});
+
+
 Route::group(array('prefix'=>'player'),function() {
     Route::any('/add', "PlayerController@add");
 });

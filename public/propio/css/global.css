@@ -10,7 +10,11 @@ body {
     /*opacity: 0.4;
     filter:alpha(opacity=40);*/
 }
-
+.modal-agregar-jugador {
+    background-image: url(/propio/image/player1.jpg);
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
 #wrapper{
     width:100%;
 }
@@ -27,17 +31,23 @@ body {
     position:fixed;
     bottom:0px;
 }
-
 .container {
     background-color:rgba(255,255,255,0.98);
     background-repeat: repeat-x;
     /*background-size: 95% 95%;*/
 }
-
 .title h1 {
     font-family: titleh1;
     font-size: 400%;
     color: red;
+}
+.jugadores-agregados p{
+    padding: 5px;
+}
+#profile-photo {
+    margin: 0 auto;
+    width: 300px;
+    height: 300px;
 }
 
 

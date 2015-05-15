@@ -35,7 +35,7 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
                                 <li><a href="/">Home</a></li>
-                                <li><a href="/">Organizar partido</a></li>
+                                <li><a href="/match/">Organizar partido</a></li>
                                 @if ( Auth::check() )
                                     <li><a href="/">Historial de Partidos</a></li>
                                     <li><a href="/">Mis jugadores</a></li>

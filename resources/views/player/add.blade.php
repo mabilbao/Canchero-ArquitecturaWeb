@@ -13,7 +13,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <input name="file" type="file" value="upload" id="file" />
-                <img src="" class="img-circle img-responsive" id="profile-photo" alt="Responsive image">
+                <img src="" class="img-rounded img-responsive hide" id="profile-photo" alt="Responsive image">
             </div>
         </div>
         <div class="col-lg-6">
