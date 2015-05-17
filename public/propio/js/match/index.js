@@ -1,6 +1,7 @@
 var Match = {
 
     equipo: null,
+    map: null,
 
     init : function(){
         $('.container').on('change', '#tamano_cancha', Match.cambiarTamanoCancha);
@@ -8,11 +9,18 @@ var Match = {
         $('.container').on('click', '.guardar-jugador-simple', Match.agregarJugador);
         $('.container').on('click', '.cancelar-jugador-simple', Match.limpiarModal);
         $('.container').on('submit', Match.validarCreacionPartido);
+        $('.container').on('shown.bs.modal', "#myModalMap", function () {
+            var currentCenter = Match.map.getCenter();  // Get current center before resizing
+            google.maps.event.trigger(Match.map, "resize");
+            Match.map.setCenter(currentCenter); // Re-set previous center
+        });
 
         var options = {
-            map: ".map_canvas"
+            map: ".map_canvas",
+            componentRestrictions: {country: 'ar'}
         };
         $("#cancha").geocomplete(options);
+        Match.map = $("#cancha").geocomplete("map")
     },
 
     cambiarTamanoCancha : function(){

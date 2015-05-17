@@ -11,7 +11,7 @@
 
         <form method="post" action="">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <div class="form-group">
                         <label>Tipo de Cancha:*</label>
                         <select name="tamano_cancha" id="tamano_cancha" class="form-control">
@@ -21,22 +21,24 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="form-group">
-                        <label>Organizacion:* (Proximamente: Random )</label>
-                        <select name="modo" class="form-control" disabled>
+                {{--<div class="col-lg-4">--}}
+                    {{--<div class="form-group">--}}
+                        {{--<label>Organizacion:* (Proximamente: Random )</label>--}}
+                        {{--<select name="modo" class="form-control" disabled>--}}
 {{--                            @foreach( ($modo = array("propio" => "Modo Personal", "random" => "Modo Random (Proximamente)")) as $keym => $valuem )--}}
-                            @foreach( ($modo = array("propio" => "Modo Personal")) as $keym => $valuem )
-                                <option value="{{$keym}}">{{$valuem}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <div class="col-lg-4">
+                            {{--@foreach( ($modo = array("propio" => "Modo Personal")) as $keym => $valuem )--}}
+                                {{--<option value="{{$keym}}">{{$valuem}}</option>--}}
+                            {{--@endforeach--}}
+                        {{--</select>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                <div class="col-lg-6">
                     <label>Direccion de la cancha:</label>
-                    <div class="form-group text-center">
-                        <input type="text" id="cancha" class="form-control">
-                        <a href="javascript:;" class="btn btn-default text-center"
+                    <div class="form-inline">
+                        <div class="form-group" style="width: 75%">
+                            <input type="text" id="cancha" class="form-control" style="width: 100%">
+                        </div>
+                        <a href="javascript:;" class="btn btn-default"
                            data-toggle="modal" data-target="#myModalMap">Mapa</a>
                     </div>
                 </div>
@@ -44,7 +46,8 @@
 
             <div class="row">
                 <div class="col-lg-1"></div>
-                <div class="col-lg-4 equipo" id="equipo-1">
+                <div class="col-lg-4 equipo" id="
+                ">
                     <div class="form-group text-center">
                         <label>Equipo:
                             <input type="text" placeholder="Ej: Equipo-1">
@@ -79,6 +82,7 @@
                     <button type="submit" value="" class="btn btn-primary">Generar Partido!</button>
                 </div>
             </div>
+
         </form>
 
         <!-- Modal -->
@@ -95,19 +99,15 @@
                 <div class="modal-content modal-agregar-jugador">
                     <div class="modal-header">
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 title">
                                 <h1>Direccion de la cancha:</h1>
                             </div>
                         </div>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="map_canvas" style="width: 570px;
-                                  height: 300px;
-                                  margin: 10px 20px 10px 0;"></div>
-                            </div>
-                        </div>
+                        <div class="map_canvas" style="width: 570px;
+                          height: 300px;
+                          margin: 10px 20px 10px 0;"></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Volver</button>
