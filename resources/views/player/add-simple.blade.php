@@ -33,6 +33,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="email">Mail:</label>
+                            <input type="email" name="email" class="form-control">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

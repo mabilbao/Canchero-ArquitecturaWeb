@@ -7,39 +7,44 @@ var Match = {
         $('.container').on('click', '.agregarJugador', Match.verificarAgregado);
         $('.container').on('click', '.guardar-jugador-simple', Match.agregarJugador);
         $('.container').on('click', '.cancelar-jugador-simple', Match.limpiarModal);
+        $('.container').on('submit', Match.validarCreacionPartido);
+
+        var options = {
+            map: ".map_canvas"
+        };
+        $("#cancha").geocomplete(options);
     },
 
     cambiarTamanoCancha : function(){
 
-        var cantidadJugadores = $(this).val();
+        var cantidadJugadores =  $(this).find(":selected").data("tamano");
 
-        if (($(".equipo-1").find(".jugadores-agregados").find("p").size() > cantidadJugadores)
-            || ($(".equipo-2").find(".jugadores-agregados").find("p").size() > cantidadJugadores)){
+        if (($("#equipo-1").find(".jugadores-agregados").find("p").size() > cantidadJugadores)
+            || ($("#equipo-2").find(".jugadores-agregados").find("p").size() > cantidadJugadores)){
             alert("Tenes mas jugadores por equipo, que los del tamano de cancha al que queres cambiar. Limpia a unos pares del equipo campeon!");
             return false;
         }
 
         switch ( cantidadJugadores ) {
-            case '5':
+            case 5:
                 $(".jugadores-agregados").css("height", "200px");
-                Match.equipo.parents(".equipo").find(".agregarJugador").removeAttr("disabled");
                 break;
-            case '6':
+            case 6:
                 $(".jugadores-agregados").css("height", "250px");
-                Match.equipo.parents(".equipo").find(".agregarJugador").removeAttr("disabled");
                 break;
-            case '7':
+            case 7:
                 $(".jugadores-agregados").css("height", "300px");
-                Match.equipo.parents(".equipo").find(".agregarJugador").removeAttr("disabled");
                 break;
-            case '9':
+            case 9:
                 $(".jugadores-agregados").css("height", "400px");
-                Match.equipo.parents(".equipo").find(".agregarJugador").removeAttr("disabled");
                 break;
-            case '11':
+            case 11:
                 $(".jugadores-agregados").css("height", "500px");
-                Match.equipo.parents(".equipo").find(".agregarJugador").removeAttr("disabled");
                 break;
+        }
+
+        if ( Match.equipo ){
+            Match.equipo.parents(".equipo").find(".agregarJugador").removeAttr("disabled");
         }
 
         $(".label_tamano").text(cantidadJugadores);
@@ -82,7 +87,29 @@ var Match = {
         $("[name='nombre']").val("");
         $("[name='apodo']").val("");
         $('#profile-photo').attr('src', "/propio/image/profile1.png");
+    },
+
+    validarCreacionPartido : function (){
+
+        var tamano = $("#tamano_cancha").find(":selected").data("tamano");
+
+        if ( $("#equipo-1").find("p").size() != tamano){
+            alert("El equipo 1 no tiene los suficientes jugadores. Media pila papa!");
+            return false;
+        }
+
+        if ( $("#equipo-2").find("p").size() != tamano){
+            alert("El equipo 2 no tiene los suficientes jugadores. Media pila papa!");
+            return false;
+        }
+
+        if ( $("#cancha").find("p").size() != tamano){
+            alert("Tenes que ingresar alguna cancha papa. Yo se que el Campnou no esta disponible, pero en una de esas alguna cancha en San Telmo te puede interesar.");
+            return false;
+        }
+
     }
+
 }
 
 jQuery(Match.init)

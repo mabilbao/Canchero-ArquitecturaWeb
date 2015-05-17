@@ -1,4 +1,9 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
+use App\TamanoCancha;
+use App\Partido;
+
 
 class MatchController extends Controller {
 
@@ -7,24 +12,26 @@ class MatchController extends Controller {
         $post = \Input::get();
         $data = array();
 
-        $data['tamano_cancha'] = array(
-            "5" => "Cancha de 5",
-            "6" => "Cancha de 6",
-            "7" => "Cancha de 7",
-            "9" => "Cancha de 9",
-            "11" => "Cancha de 11",
+        $tamanos_canchas = TamanoCancha::all();
+        foreach ($tamanos_canchas as $t) {
+            $data['tamano_cancha'][$t->tamano_cancha_id] = $t;
+        }
 
-        );
 
+        $data['tamano_cancha'] = TamanoCancha::all();
 
         if ( $post ){
 
+            $partido = new Partido();
+            $partido->user_id = null;
+            $partido->cancha_id = null;
+            $partido->fecha = new \DateTime();
+            $partido->resultado_equipo_1 = null;
+            $partido->resultado_equipo_2 = null;
 
-
-
+            $partido->save();
         }
 
         return \View::make("match/index", $data);
     }
-
 }

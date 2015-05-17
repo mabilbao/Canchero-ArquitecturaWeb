@@ -13,6 +13,7 @@
   "dependencies": {
     "jquery": "~2.1.1",
     "jquery-ui": "~1.11.3",
-    "bootstrap": "~3.3.4"
+    "bootstrap": "~3.3.4",
+    "ubilabs-geocomplete": "~1.6.5"
   }
 }
