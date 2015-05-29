@@ -17,6 +17,7 @@ Route::any('/', 'WelcomeController@index');
 
 Route::group(array('prefix'=>'match'),function() {
     Route::any('/', "MatchController@match");
+    Route::any('/congratulation', "MatchController@congratulation");
 });
 
 

@@ -17,6 +17,8 @@ var Match = {
 
         var options = {
             map: ".map_canvas",
+            details: ".details",
+            detailsAttribute: "data-geo",
             componentRestrictions: {country: 'ar'}
         };
         $("#cancha").geocomplete(options);
@@ -77,7 +79,10 @@ var Match = {
                 nombreFinal = apodo;
             }
 
-            var jugador = "<p class=\"text-center " + Match.equipo.data('color') + "\">"
+            var nombreEquipo = Match.equipo.parents(".equipo").find(".nombre-equipo").data("nombre");
+
+            var jugador = "<p class=\"text-center " + Match.equipo.data('color') + "\""
+                + " name=\"" + nombreEquipo  + "[]\">"
                 + nombreFinal
                 + "</p>";
 
@@ -99,23 +104,22 @@ var Match = {
 
     validarCreacionPartido : function (){
 
-        var tamano = $("#tamano_cancha").find(":selected").data("tamano");
-
-        if ( $("#equipo-1").find("p").size() != tamano){
-            alert("El equipo 1 no tiene los suficientes jugadores. Media pila papa!");
-            return false;
-        }
-
-        if ( $("#equipo-2").find("p").size() != tamano){
-            alert("El equipo 2 no tiene los suficientes jugadores. Media pila papa!");
-            return false;
-        }
-
-        if ( $("#cancha").find("p").size() != tamano){
-            alert("Tenes que ingresar alguna cancha papa. Yo se que el Campnou no esta disponible, pero en una de esas alguna cancha en San Telmo te puede interesar.");
-            return false;
-        }
-
+        //var tamano = $("#tamano_cancha").find(":selected").data("tamano");
+        //
+        //if ( $("#equipo-1").find("p").size() != tamano){
+        //    alert("El equipo 1 no tiene los suficientes jugadores. Media pila papa!");
+        //    return false;
+        //}
+        //
+        //if ( $("#equipo-2").find("p").size() != tamano){
+        //    alert("El equipo 2 no tiene los suficientes jugadores. Media pila papa!");
+        //    return false;
+        //}
+        //
+        //if ( $("#cancha").val() == "" ){
+        //    alert("Tenes que ingresar alguna cancha papa. Yo se que el Campnou no esta disponible, pero en una de esas alguna cancha en San Telmo te puede interesar.");
+        //    return false;
+        //}
     }
 
 }

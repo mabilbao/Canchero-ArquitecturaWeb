@@ -16,6 +16,79 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `equipos`
+--
+
+DROP TABLE IF EXISTS `equipos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `equipos` (
+  `equipo_id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`equipo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `equipos`
+--
+
+LOCK TABLES `equipos` WRITE;
+/*!40000 ALTER TABLE `equipos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `equipos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `equipos_jugadores`
+--
+
+DROP TABLE IF EXISTS `equipos_jugadores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `equipos_jugadores` (
+  `equipo_jugador_id` int(11) NOT NULL AUTO_INCREMENT,
+  `equipo_id` int(11) NOT NULL,
+  `jugador_id` int(11) NOT NULL,
+  PRIMARY KEY (`equipo_jugador_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `equipos_jugadores`
+--
+
+LOCK TABLES `equipos_jugadores` WRITE;
+/*!40000 ALTER TABLE `equipos_jugadores` DISABLE KEYS */;
+/*!40000 ALTER TABLE `equipos_jugadores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `jugadores`
+--
+
+DROP TABLE IF EXISTS `jugadores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jugadores` (
+  `jugador_id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  `apodo` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `foto_url` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`jugador_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jugadores`
+--
+
+LOCK TABLES `jugadores` WRITE;
+/*!40000 ALTER TABLE `jugadores` DISABLE KEYS */;
+/*!40000 ALTER TABLE `jugadores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -49,7 +122,10 @@ CREATE TABLE `partidos` (
   `partido_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `cancha_id` int(11) NOT NULL,
+  `equipo_1_id` int(11) NOT NULL,
+  `equipo_2_id` int(11) NOT NULL,
   `fecha` datetime NOT NULL,
+  `direccion` varchar(100) DEFAULT NULL,
   `resultado_equipo_1` int(11) DEFAULT NULL,
   `resultado_equipo_2` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -156,4 +232,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-16 23:21:07
+-- Dump completed on 2015-05-29  0:29:08
