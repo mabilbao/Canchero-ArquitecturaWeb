@@ -23,6 +23,7 @@ Route::group(array('prefix'=>'match'),function() {
 
 Route::group(array('prefix'=>'player'),function() {
     Route::any('/add', "PlayerController@add");
+    Route::any('/register', "PlayerController@register");
 });
 
 /* Necesitamos revisar de que se trata esto dado que aparecio en la version 5.0 de laravel*/

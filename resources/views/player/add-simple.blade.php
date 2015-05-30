@@ -1,4 +1,4 @@
-
+<form method="post" id="crear-jugador">
     <div class="modal-header">
         <div class="row">
             <div class="col-lg-12 text-center title">
@@ -45,6 +45,11 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-success guardar-jugador-simple" data-dismiss="modal">Guardar</button>
+        @if ( Auth::check() )
+            <button type="submit" class="btn btn-success" data-dismiss="modal">Guardar</button>
+        @else
+            <button type="button" class="btn btn-success guardar-jugador-simple" data-dismiss="modal">Guardar</button>
+        @endif
         <button type="button" class="btn btn-danger cancelar-jugador-simple" data-dismiss="modal">Cancelar</button>
     </div>
+</form>

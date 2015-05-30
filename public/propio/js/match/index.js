@@ -6,6 +6,7 @@ var Match = {
     init : function(){
         $('.container').on('change', '#tamano_cancha', Match.cambiarTamanoCancha);
         $('.container').on('click', '.agregarJugador', Match.verificarAgregado);
+        $('.container').on('submit', '#crear-jugador', Match.altaJugador);
         $('.container').on('click', '.guardar-jugador-simple', Match.agregarJugador);
         $('.container').on('click', '.cancelar-jugador-simple', Match.limpiarModal);
         $('.container').on('submit', Match.validarCreacionPartido);
@@ -64,7 +65,7 @@ var Match = {
         Match.equipo = $(this).parents(".equipo").find(".jugadores-agregados");
     },
 
-    agregarJugador : function(){
+    altaJugador : function(){
         var nombre = $("[name='nombre']").val();
         var apodo = $("[name='apodo']").val();
 
@@ -72,27 +73,80 @@ var Match = {
             alert("Es necesario que al menos ingreses un dato del jugador!");
             return false;
         }else{
+
+            event.preventDefault();
+            var formData = new FormData($(this)[0]);
+
             var nombreFinal;
             if ( apodo == ""){
                 nombreFinal = nombre;
             }else{
                 nombreFinal = apodo;
             }
+            var nombreEquipo = Match.equipo.parents(".equipo").find(".nombre-equipo").data("nombre");
+
+            $.ajax({
+                url: '/player/register',
+                type: 'POST',
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function ( response ) {
+                    if ( response.success ) {
+
+                        var jugador = "<div>"
+                            + "<input type=\"text\" class=\"text-center jugador btn-success\" name=\""
+                            + nombreEquipo + "[]\" value=\""
+                            + response.jugador_id
+                            + "\" readonly=\"readonly\" style=\"width: 100%; margin: 0 0 10px; padding: 3px\">"
+                            + "</div>";
+
+                        Match.equipo.append(jugador);
+
+                        if (Match.equipo.find(".jugador").size() == $("#tamano_cancha").val()) {
+                            Match.equipo.parents(".equipo").find(".agregarJugador").attr("disabled", "disabled");
+                        }
+
+                        Match.limpiarModal();
+                    }
+                }
+            });
+        }
+    },
+
+    agregarJugador : function(){
+        var apodo = $("[name='apodo']").val();
+
+        if ( apodo == "" ) {
+            alert("Es necesario que ingreses el apodo!");
+            return false;
+        }else{
 
             var nombreEquipo = Match.equipo.parents(".equipo").find(".nombre-equipo").data("nombre");
 
-            var jugador = "<p class=\"text-center " + Match.equipo.data('color') + "\""
-                + " name=\"" + nombreEquipo  + "[]\">"
-                + nombreFinal
-                + "</p>";
+            var jugador = "<div>"
+                + "<input type=\"text\" class=\"text-center jugador btn-success\" name=\""
+                + nombreEquipo + "[nombres]\" value=\""
+                + apodo
+                + "\" readonly=\"readonly\" style=\"width: 100%; margin: 0 0 10px; padding: 3px\">";
+
+            if ( $("[name='email']").val() != "" ) {
+                jugador = jugador + "<input type=\"hidden\" name=\"" + nombreEquipo + "[mails]\" value=\""
+                + $("[name='email']").val() + "\">";
+            }
+
+            jugador = jugador + "</div>";
 
             Match.equipo.append(jugador);
 
-            if (Match.equipo.find("p").size() == $("#tamano_cancha").val() ){
-                Match.equipo.parents(".equipo").find(".agregarJugador").attr("disabled","disabled");
+            if (Match.equipo.find(".jugador").size() == $("#tamano_cancha").val()) {
+                Match.equipo.parents(".equipo").find(".agregarJugador").attr("disabled", "disabled");
             }
 
             Match.limpiarModal();
+
         }
     },
 

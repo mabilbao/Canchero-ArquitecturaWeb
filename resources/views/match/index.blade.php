@@ -51,7 +51,7 @@
                 <div class="col-lg-4 equipo" id="equipo-1">
                     <div class="form-group text-center">
                         <label>Equipo:
-                            <input type="text" data-nombre="equipo-1" placeholder="Ej: Equipo-1" class="nombre-equipo">
+                            <input type="text" data-nombre="equipo-1" placeholder="Ej: Equipo-1" class="nombre-equipo" name="nombre_equipo_1">
                             (<span class="label_tamano">5</span> jugadores)
                         </label>
                         <a href="javascript:;" class="form-control btn btn-success agregarJugador"
@@ -59,11 +59,11 @@
                     </div>
                     <div class="jugadores-agregados" data-color="btn-success" style="border: double; height: 200px">
 
-                        <input type="text" class="text-center btn-success" name="equipo-1[]" value="1" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px">
-                        <input type="text" class="text-center btn-success" name="equipo-1[]" value="1" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px">
-                        <input type="text" class="text-center btn-success" name="equipo-1[]" value="1" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px">
-                        <input type="text" class="text-center btn-success" name="equipo-1[]" value="1" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px">
-                        <input type="text" class="text-center btn-success" name="equipo-1[]" value="1" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px">
+                        <div><input type="text" class="text-center jugador btn-success" name="equipo-1[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-1[mails]" value="martin.bilbao.mb@gmail.com"></div>
+                        <div><input type="text" class="text-center jugador btn-success" name="equipo-1[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-1[mails]" value="martin.bilbao.mb@gmail.com"></div>
+                        <div><input type="text" class="text-center jugador btn-success" name="equipo-1[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-1[mails]" value="martin.bilbao.mb@gmail.com"></div>
+                        <div><input type="text" class="text-center jugador btn-success" name="equipo-1[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-1[mails]" value="martin.bilbao.mb@gmail.com"></div>
+                        <div><input type="text" class="text-center jugador btn-success" name="equipo-1[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-1[mails]" value="martin.bilbao.mb@gmail.com"></div>
 
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                 <div class="col-lg-4 equipo" id="equipo-2">
                     <div class="form-group text-center">
                         <label>Equipo:
-                            <input type="text" data-nombre="equipo-2" placeholder="Ej: Equipo-2" class="nombre-equipo">
+                            <input type="text" data-nombre="equipo-2" placeholder="Ej: Equipo-2" class="nombre-equipo" name="nombre_equipo_2">
                             (<span class="label_tamano">5</span> jugadores)
                         </label>
                         <a href="javascript:;" class="form-control btn btn-danger agregarJugador"
@@ -79,11 +79,11 @@
                     </div>
                     <div class="jugadores-agregados" data-color="btn-danger" style="border: double; height: 200px">
 
-                        <input type="text" class="text-center btn-danger" name="equipo-2[]" value="2" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px">
-                        <input type="text" class="text-center btn-danger" name="equipo-2[]" value="2" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px">
-                        <input type="text" class="text-center btn-danger" name="equipo-2[]" value="2" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px">
-                        <input type="text" class="text-center btn-danger" name="equipo-2[]" value="2" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px">
-                        <input type="text" class="text-center btn-danger" name="equipo-2[]" value="2" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px">
+                        <div><input type="text" class="text-center jugador btn-success" name="equipo-2[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-2[mails]" value="martin.bilbao.mb@gmail.com"></div>
+                        <div><input type="text" class="text-center jugador btn-success" name="equipo-2[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-2[mails]" value="martin.bilbao.mb@gmail.com"></div>
+                        <div><input type="text" class="text-center jugador btn-success" name="equipo-2[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-2[mails]" value="martin.bilbao.mb@gmail.com"></div>
+                        <div><input type="text" class="text-center jugador btn-success" name="equipo-2[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-2[mails]" value="martin.bilbao.mb@gmail.com"></div>
+                        <div><input type="text" class="text-center jugador btn-success" name="equipo-2[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-2[mails]" value="martin.bilbao.mb@gmail.com"></div>
 
                     </div>
                 </div>
