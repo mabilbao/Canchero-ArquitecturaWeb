@@ -33,6 +33,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 
     public function jugadores(){
-        $this->hasMany("Jugador", "jugador_id", "jugador_id");
+        $this->hasMany('App\Jugador', "jugador_id", "jugador_id");
     }
 }

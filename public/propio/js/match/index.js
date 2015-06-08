@@ -6,7 +6,7 @@ var Match = {
     init : function(){
         $('.container').on('change', '#tamano_cancha', Match.cambiarTamanoCancha);
         $('.container').on('click', '.agregarJugador', Match.verificarAgregado);
-        $('.container').on('submit', '#crear-jugador', Match.altaJugador);
+        $('#myModal').on('submit', '#crear-jugador', Match.altaJugador);
         $('.container').on('click', '.guardar-jugador-simple', Match.agregarJugador);
         $('.container').on('click', '.cancelar-jugador-simple', Match.limpiarModal);
         $('.container').on('submit', Match.validarCreacionPartido);
@@ -96,11 +96,19 @@ var Match = {
                 success: function ( response ) {
                     if ( response.success ) {
 
+                        if ( nombreEquipo == "equipo-1") {
+                            var style = "btn-success";
+                        }else{
+                            var style = "btn-danger";
+                        }
+
                         var jugador = "<div>"
-                            + "<input type=\"text\" class=\"text-center jugador btn-success\" name=\""
-                            + nombreEquipo + "[]\" value=\""
-                            + response.jugador_id
+                            + "<input type=\"text\" class=\"text-center jugador " + style + "\" value=\""
+                            + nombreFinal
                             + "\" readonly=\"readonly\" style=\"width: 100%; margin: 0 0 10px; padding: 3px\">"
+
+                            + "<input type=\"hidden\" name=\"" + nombreEquipo + "[]\" value=\"" + response.jugador_id + "\">"
+
                             + "</div>";
 
                         Match.equipo.append(jugador);
@@ -110,6 +118,7 @@ var Match = {
                         }
 
                         Match.limpiarModal();
+                        $('#myModal').modal('toggle');
                     }
                 }
             });
@@ -119,15 +128,23 @@ var Match = {
     agregarJugador : function(){
         var apodo = $("[name='apodo']").val();
 
+        var nombreEquipo = Match.equipo.parents(".equipo").find(".nombre-equipo").data("nombre");
+
         if ( apodo == "" ) {
             alert("Es necesario que ingreses el apodo!");
             return false;
         }else{
 
+            if ( nombreEquipo == "equipo-1") {
+                var style = "btn-success";
+            }else{
+                var style = "btn-danger";
+            }
+
             var nombreEquipo = Match.equipo.parents(".equipo").find(".nombre-equipo").data("nombre");
 
             var jugador = "<div>"
-                + "<input type=\"text\" class=\"text-center jugador btn-success\" name=\""
+                + "<input type=\"text\" class=\"text-center jugador " + style + "\" name=\""
                 + nombreEquipo + "[nombres]\" value=\""
                 + apodo
                 + "\" readonly=\"readonly\" style=\"width: 100%; margin: 0 0 10px; padding: 3px\">";

@@ -31,6 +31,7 @@ class MatchController extends Controller {
                 $equipo_1->nombre = $post["nombre_equipo_1"] == "" ? "Equipo 1" : $post["nombre_equipo_1"];
                 $equipo_1->save();
                 //Agrego jugadores al equipo 1
+
                 $equipo_1->jugadores()->sync($post["equipo-1"]);
 
                 // Creacion del equipo 2
@@ -42,7 +43,7 @@ class MatchController extends Controller {
 
                 //Creacion del partido
                 $partido = new Partido();
-                $partido->user_id = \Auth::user()->user_id;
+                $partido->user_id = \Auth::user()->id;
                 $partido->cancha_id = null;
                 $partido->equipo_1_id = $equipo_1->equipo_id;
                 $partido->equipo_2_id = $equipo_2->equipo_id;
@@ -56,38 +57,44 @@ class MatchController extends Controller {
                 //Equipo 1
                 foreach ( $post["equipo-1"] as $j ) {
                     $jugador = Jugador::find( $j );
-                    if ( $jugador->email ) {
+                    if ( $jugador && $jugador->email ) {
                         $mails_equipo_1[] = $jugador->email;
                     }
-                    if ( $jugador->apodo ){
-                        $nombre_jugadores_equipo_1 = $jugador->apodo;
-                    } else {
-                        $nombre_jugadores_equipo_1 = $jugador->nombre;
+                    if ( $jugador ){
+                        if ( $jugador->apodo ){
+                            $nombre_jugadores_equipo_1 = $jugador->apodo;
+                        } else {
+                            $nombre_jugadores_equipo_1 = $jugador->nombre;
+                        }
                     }
+                    $jugador = null;
                 }
                 //Equipo 2
                 foreach ( $post["equipo-2"] as $j ) {
                     $jugador = Jugador::find( $j );
-                    if ( $jugador->email ) {
+                    if ( $jugador && $jugador->email ) {
                         $mails_equipo_2[] = $jugador->email;
                     }
-                    if ( $jugador->apodo ){
-                        $nombre_jugadores_equipo_2 = $jugador->apodo;
-                    } else {
-                        $nombre_jugadores_equipo_2 = $jugador->nombre;
+                    if ( $jugador ) {
+                        if ($jugador && $jugador->apodo) {
+                            $nombre_jugadores_equipo_2 = $jugador->apodo;
+                        } else {
+                            $nombre_jugadores_equipo_2 = $jugador->nombre;
+                        }
                     }
+                    $jugador = null;
                 }
-                $this->armarYEnviarMail( $mails_equipo_1,
-                    $mails_equipo_2,
-                    $nombre_jugadores_equipo_1,
-                    $nombre_jugadores_equipo_2,
+                $this->armarYEnviarMail( isset($mails_equipo_1) ? $mails_equipo_1 : null,
+                    isset($mails_equipo_2) ? $mails_equipo_2 : null,
+                    isset($nombre_jugadores_equipo_1) ? $nombre_jugadores_equipo_1 : null,
+                    isset($nombre_jugadores_equipo_2) ? $nombre_jugadores_equipo_2 : null,
                     $equipo_1->nombre,
                     $equipo_2->nombre,
                     $partido->direccion,
                     $partido->fecha
                 );
 
-                Session::put("partido_id", $partido->patido_id);
+                Session::put("partido_id", $partido->partido_id);
 
             }else{
 

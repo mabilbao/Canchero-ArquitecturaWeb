@@ -59,11 +59,15 @@
                     </div>
                     <div class="jugadores-agregados" data-color="btn-success" style="border: double; height: 200px">
 
-                        <div><input type="text" class="text-center jugador btn-success" name="equipo-1[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-1[mails]" value="martin.bilbao.mb@gmail.com"></div>
-                        <div><input type="text" class="text-center jugador btn-success" name="equipo-1[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-1[mails]" value="martin.bilbao.mb@gmail.com"></div>
-                        <div><input type="text" class="text-center jugador btn-success" name="equipo-1[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-1[mails]" value="martin.bilbao.mb@gmail.com"></div>
-                        <div><input type="text" class="text-center jugador btn-success" name="equipo-1[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-1[mails]" value="martin.bilbao.mb@gmail.com"></div>
-                        <div><input type="text" class="text-center jugador btn-success" name="equipo-1[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-1[mails]" value="martin.bilbao.mb@gmail.com"></div>
+                        {{--Public--}}
+                        {{--@foreach (array(1,2,3,4,5) as $nombre)--}}
+                            {{--<div><input type="text" class="text-center jugador btn-success" name="equipo-1[nombres]" value={{$nombre}} readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-1[mails]" value="martin.bilbao.mb@gmail.com"></div>--}}
+                        {{--@endforeach--}}
+
+                        {{--Private--}}
+                        @foreach (array(1,2,3,4,5) as $nombre)
+                            <div><input type="text" class="text-center jugador btn-success" value="{{$nombre}}" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-1[]" value={{ $nombre }}></div>
+                        @endforeach
 
                     </div>
                 </div>
@@ -79,11 +83,15 @@
                     </div>
                     <div class="jugadores-agregados" data-color="btn-danger" style="border: double; height: 200px">
 
-                        <div><input type="text" class="text-center jugador btn-success" name="equipo-2[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-2[mails]" value="martin.bilbao.mb@gmail.com"></div>
-                        <div><input type="text" class="text-center jugador btn-success" name="equipo-2[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-2[mails]" value="martin.bilbao.mb@gmail.com"></div>
-                        <div><input type="text" class="text-center jugador btn-success" name="equipo-2[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-2[mails]" value="martin.bilbao.mb@gmail.com"></div>
-                        <div><input type="text" class="text-center jugador btn-success" name="equipo-2[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-2[mails]" value="martin.bilbao.mb@gmail.com"></div>
-                        <div><input type="text" class="text-center jugador btn-success" name="equipo-2[nombres]" value="Marton" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-2[mails]" value="martin.bilbao.mb@gmail.com"></div>
+                        {{--Public--}}
+                        {{--@foreach (array(1,2,3,4,5) as $nombre)--}}
+                            {{--<div><input type="text" class="text-center jugador btn-danger" name="equipo-2[nombres]" value={{$nombre}} readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-2[mails]" value="martin.bilbao.mb@gmail.com"></div>--}}
+                        {{--@endforeach--}}
+
+                        {{--Private--}}
+                        @foreach (array(1,2,3,4,5) as $nombre)
+                            <div><input type="text" class="text-center jugador btn-danger" value="{{$nombre}}" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-2[]" value={{ $nombre + 5 }}></div>
+                        @endforeach
 
                     </div>
                 </div>
@@ -108,7 +116,7 @@
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" data-backdrop="static" role="dialog">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog {{ ( Auth::guest() ) ? "modal-small" : "modal-lg" }}">
                 <div class="modal-content modal-agregar-jugador">
                     @include("player.add-simple")
                 </div>

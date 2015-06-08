@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Equipo extends Model {
 
 	protected $table = 'equipos';
@@ -9,7 +10,7 @@ class Equipo extends Model {
     protected $timestamp = true;
 
     public function jugadores(){
-        return $this->belongsToMany('Jugador','equipos_jugadores');
+        return $this->belongsToMany('App\Jugador','equipos_jugadores');
     }
 
 }

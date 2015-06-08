@@ -7,4 +7,11 @@ class PlayerController extends Controller {
         return \View::make("player/add");
     }
 
+    public function register(){
+//        var_dump("Hola");
+        return \Response::json(["success" => true, "jugador_id" => 1]);
+
+
+    }
+
 }
