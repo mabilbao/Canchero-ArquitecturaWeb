@@ -75,7 +75,7 @@
             </div>
         </div>
         {{--Jquery--}}
-        <script src="/bower/jquery/dist/jquery.js"></script>
+        {{--<script src="/bower/jquery/dist/jquery.js"></script>--}}
         <script src="/bower/jquery/dist/jquery.min.js"></script>
 
         {{--Bootstrap --}}

@@ -9,13 +9,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <img src="/propio/image/welcome1.jpg">
+            <div class="col-lg-9 col-lg-offset-3 text-center">
+                <img id="portada" class="img-responsive" src="/propio/image/welcome1.jpg">
             </div>
         </div>
     </div>
 @endsection
 
 @section("javascript")
-    <script src="/propio/js/player/add.js"></script>
+    <script src="/propio/js/index.js"></script>
 @endsection
