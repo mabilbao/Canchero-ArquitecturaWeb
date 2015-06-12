@@ -12,7 +12,6 @@
         <title>Canchero</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {{--<link rel="stylesheet" href="/css/main.css?" type="text/css"/>--}}
         <meta id="application-environment" data-environment="{{App::environment()}}" />
 
     </head>
@@ -86,12 +85,5 @@
         {{--Cotenido javascript para cada pagina en particualar--}}
         @yield('javascript')
 
-        {{--<footer>--}}
-            {{--<nav class="navbar navbar-default">--}}
-                {{--<div class="container-fluid text-center">--}}
-                        {{--<p>My footer</p>--}}
-                {{--</div>--}}
-            {{--</nav>--}}
-        {{--</footer>--}}
     </body>
 </html>

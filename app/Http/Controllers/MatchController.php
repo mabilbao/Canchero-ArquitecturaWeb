@@ -99,10 +99,10 @@ class MatchController extends Controller {
             }else{
 
                 //Envio mail con informacion
-                $this->armarYEnviarMail( $post["equipo-1"]["mails"],
-                    $post["equipo-2"]["mails"],
-                    $post["equipo-1"]["nombres"],
-                    $post["equipo-2"]["nombres"],
+                $this->armarYEnviarMail( isset($post["equipo-1"]["mails"]) ? $post["equipo-1"]["mails"] : null,
+                    isset($post["equipo-2"]["mails"]) ? $post["equipo-2"]["mails"] : null,
+                    isset($post["equipo-1"]["nombres"]) ? $post["equipo-1"]["nombres"] : null,
+                    isset($post["equipo-2"]["nombres"]) ? $post["equipo-2"]["nombres"] : null,
                     $post["nombre_equipo_1"] == "" ? "Equipo 1" : $post["nombre_equipo_1"],
                     $post["nombre_equipo_2"] == "" ? "Equipo 2" : $post["nombre_equipo_2"],
                     $post["direccion"],

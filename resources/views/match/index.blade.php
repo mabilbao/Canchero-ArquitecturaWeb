@@ -55,7 +55,7 @@
                             (<span class="label_tamano">5</span> jugadores)
                         </label>
                         <a href="javascript:;" class="form-control btn btn-success agregarJugador"
-                           data-toggle="modal" data-target="#myModal">Agregar Jugador</a>
+                               data-toggle="modal" data-target="#myModal">Agregar Jugador</a>
                     </div>
                     <div class="jugadores-agregados" data-color="btn-success" style="border: double; height: 200px">
 
@@ -65,9 +65,9 @@
                         {{--@endforeach--}}
 
                         {{--Private--}}
-                        @foreach (array(1,2,3,4,5) as $nombre)
-                            <div><input type="text" class="text-center jugador btn-success" value="{{$nombre}}" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-1[]" value={{ $nombre }}></div>
-                        @endforeach
+                        {{--@foreach (array(1,2,3,4,5) as $nombre)--}}
+                            {{--<div><input type="text" class="text-center jugador btn-success" value="{{$nombre}}" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-1[]" value={{ $nombre }}></div>--}}
+                        {{--@endforeach--}}
 
                     </div>
                 </div>
@@ -89,9 +89,9 @@
                         {{--@endforeach--}}
 
                         {{--Private--}}
-                        @foreach (array(1,2,3,4,5) as $nombre)
-                            <div><input type="text" class="text-center jugador btn-danger" value="{{$nombre}}" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-2[]" value={{ $nombre + 5 }}></div>
-                        @endforeach
+                        {{--@foreach (array(1,2,3,4,5) as $nombre)--}}
+                            {{--<div><input type="text" class="text-center jugador btn-danger" value="{{$nombre}}" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-2[]" value={{ $nombre + 5 }}></div>--}}
+                        {{--@endforeach--}}
 
                     </div>
                 </div>

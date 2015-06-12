@@ -70,7 +70,9 @@ var Match = {
         var apodo = $("[name='apodo']").val();
 
         if ( nombre == "" && apodo == "" ){
-            alert("Es necesario que al menos ingreses un dato del jugador!");
+            $("[name='apodo']").parents(".form-group:first").addClass("has-error").addClass("has-feedback");
+            $("[name='nombre']").parents(".form-group:first").addClass("has-error").addClass("has-feedback");
+            //$("[name='email']").parents(".form-group:first").addClass("has-error").addClass("has-feedback");
             return false;
         }else{
 
@@ -131,7 +133,7 @@ var Match = {
         var nombreEquipo = Match.equipo.parents(".equipo").find(".nombre-equipo").data("nombre");
 
         if ( apodo == "" ) {
-            alert("Es necesario que ingreses el apodo!");
+            $("[name='apodo']").parents(".form-group:first").addClass("has-error").addClass("has-feedback");
             return false;
         }else{
 
@@ -163,13 +165,17 @@ var Match = {
             }
 
             Match.limpiarModal();
-
+            $('#myModal').modal('toggle');
         }
     },
 
     limpiarModal : function(){
         $("[name='nombre']").val("");
+        $("[name='nombre']").parents(".form-group:first").removeClass("has-error").removeClass("has-feedback");
         $("[name='apodo']").val("");
+        $("[name='apodo']").parents(".form-group:first").removeClass("has-error").removeClass("has-feedback");
+        $("[name='email']").val("");
+        $("[name='email']").parents(".form-group:first").removeClass("has-error").removeClass("has-feedback");
         $('#profile-photo').attr('src', "/propio/image/profile1.png");
     },
 

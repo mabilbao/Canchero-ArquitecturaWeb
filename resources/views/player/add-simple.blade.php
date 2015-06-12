@@ -8,8 +8,8 @@
         </div>
     </div>
     <div class="modal-body">
-        <div class="row">
-            @if ( !Auth::guest() )
+        @if ( !Auth::guest() )
+            <div class="row">
                 <div class="col-lg-6">
                     <div class="form-group">
                         <input name="file" type="file" value="upload" id="file" class="hide" />
@@ -21,44 +21,62 @@
                 <div class="col-lg-6">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="form-group">
-                                <label for="nombre">Nombre:</label>
-                                <input type="text" name="nombre" class="form-control">
+                            <div class="form-group" >
+                                <label class="control-label" for="nombre">Nombre:</label>
+                                <input type="text" name="nombre" class="form-control" aria-describedby="inputErrorNombre">
+                                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                                <span id="inputErrorNombre" class="sr-only">(error)</span>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="apodo">Apodo:</label>
-                                <input type="text" name="apodo" class="form-control">
+                                <label class="control-label" for="apodo">Apodo:</label>
+                                <input type="text" name="apodo" class="form-control" aria-describedby="inputErrorApodo">
+                                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                                <span id="inputErrorApodo" class="sr-only">(error)</span>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="email">Mail:</label>
-                                <input type="email" name="email" class="form-control">
+                                <label class="control-label" for="email">Mail:</label>
+                                <input type="email" name="email" class="form-control" aria-describedby="inputErrorEmail">
+                                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                                <span id="inputErrorEmail" class="sr-only">(error)</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            @else
+            </div>
+        @else
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="form-group">
-                        <label for="apodo">Apodo:</label>
-                        <input type="text" name="apodo" class="form-control">
+                        <label class="control-label" for="apodo">Apodo:</label>
+                        <input type="text" name="apodo" class="form-control" aria-describedby="inputErrorApodo">
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span id="inputErrorApodo" class="sr-only">(error)</span>
                     </div>
                 </div>
-            @endif
-        </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="email">Mail:</label>
+                        <input type="email" name="email" class="form-control">
+                    </div>
+                </div>
+            </div>
+        @endif
     </div>
     <div class="modal-footer">
         @if ( Auth::check() )
             <button type="submit" id="submit" class="btn btn-success">Guardar</button>
         @else
-            <button type="button" class="btn btn-success guardar-jugador-simple" data-dismiss="modal">Agregar</button>
+            <button type="button" class="btn btn-success guardar-jugador-simple" >Agregar</button>
         @endif
         <button type="button" class="btn btn-danger cancelar-jugador-simple" data-dismiss="modal">Cancelar</button>
     </div>

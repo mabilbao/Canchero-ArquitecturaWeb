@@ -32,9 +32,8 @@ body {
     bottom:0px;
 }
 .container {
-    background-color:rgba(255,255,255,0.98);
-    background-repeat: repeat-x;
-    /*background-size: 95% 95%;*/
+    background-color:rgba(245,245,245,0.98);
+    padding: 10px 15px;
 }
 .title h1 {
     font-family: titleh1;
@@ -49,5 +48,4 @@ body {
     width: 300px;
     height: 300px;
 }
-
 
