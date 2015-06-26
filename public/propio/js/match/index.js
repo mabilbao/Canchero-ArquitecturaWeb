@@ -8,8 +8,9 @@ var Match = {
         $('.container').on('click', '.agregarJugador', Match.verificarAgregado);
         $('#myModal').on('submit', '#crear-jugador', Match.altaJugador);
         $('.container').on('click', '.guardar-jugador-simple', Match.agregarJugador);
+        $('.container').on('click', '.borrar-jugador', Match.borrarJugador);
         $('.container').on('click', '.cancelar-jugador-simple', Match.limpiarModal);
-        $('.container').on('submit', Match.validarCreacionPartido);
+        $(".partido").submit(Match.validarCreacionPartido);
         $('.container').on('shown.bs.modal', "#myModalMap", function () {
             var currentCenter = Match.map.getCenter();  // Get current center before resizing
             google.maps.event.trigger(Match.map, "resize");
@@ -99,23 +100,23 @@ var Match = {
                     if ( response.success ) {
 
                         if ( nombreEquipo == "equipo-1") {
-                            var style = "btn-success";
+                            var style = "equipo-1-style";
                         }else{
-                            var style = "btn-danger";
+                            var style = "equipo-2-style";
                         }
 
-                        var jugador = "<div>"
-                            + "<input type=\"text\" class=\"text-center jugador " + style + "\" value=\""
-                            + nombreFinal
-                            + "\" readonly=\"readonly\" style=\"width: 100%; margin: 0 0 10px; padding: 3px\">"
-
+                        var jugador = "<p class=\"jugador-style " + style + "\">"
+                            + "<label>"
+                            + "<span class=\"jugador\" name=\"" + nombreEquipo + "[nombres]\">"
+                            + nombreFinal + "</span>"
                             + "<input type=\"hidden\" name=\"" + nombreEquipo + "[]\" value=\"" + response.jugador_id + "\">"
-
-                            + "</div>";
+                            + "</label><button type=\"button\" class=\"borrar-jugador\">X</button></p>"
 
                         Match.equipo.append(jugador);
 
-                        if (Match.equipo.find(".jugador").size() == $("#tamano_cancha").val()) {
+                        console.log($("#tamano_cancha").find(":selected").data("tamano"));
+
+                        if ( Match.equipo.find(".jugador").size() == $("#tamano_cancha").find(":selected").data("tamano") ) {
                             Match.equipo.parents(".equipo").find(".agregarJugador").attr("disabled", "disabled");
                         }
 
@@ -126,7 +127,9 @@ var Match = {
             });
         }
     },
-
+    borrarJugador : function(){
+        $(this).parents("p").remove();
+    },
     agregarJugador : function(){
         var apodo = $("[name='apodo']").val();
 
@@ -138,29 +141,26 @@ var Match = {
         }else{
 
             if ( nombreEquipo == "equipo-1") {
-                var style = "btn-success";
+                var style = "equipo-1-style";
             }else{
-                var style = "btn-danger";
+                var style = "equipo-2-style";
             }
 
-            var nombreEquipo = Match.equipo.parents(".equipo").find(".nombre-equipo").data("nombre");
-
-            var jugador = "<div>"
-                + "<input type=\"text\" class=\"text-center jugador " + style + "\" name=\""
-                + nombreEquipo + "[nombres]\" value=\""
-                + apodo
-                + "\" readonly=\"readonly\" style=\"width: 100%; margin: 0 0 10px; padding: 3px\">";
+            var jugador = "<p class=\"jugador-style " + style + "\">"
+                + "<label>"
+                + "<span class=\"jugador\" name=\"" + nombreEquipo + "[nombres]\">"
+                + apodo + "</span>";
 
             if ( $("[name='email']").val() != "" ) {
                 jugador = jugador + "<input type=\"hidden\" name=\"" + nombreEquipo + "[mails]\" value=\""
                 + $("[name='email']").val() + "\">";
             }
 
-            jugador = jugador + "</div>";
+            jugador = jugador + "</label><button type=\"button\" class=\"borrar-jugador\">X</button></p>";
 
             Match.equipo.append(jugador);
 
-            if (Match.equipo.find(".jugador").size() == $("#tamano_cancha").val()) {
+            if (Match.equipo.find(".jugador").size() == $("#tamano_cancha").find(":selected").data("tamano") ) {
                 Match.equipo.parents(".equipo").find(".agregarJugador").attr("disabled", "disabled");
             }
 
@@ -181,22 +181,22 @@ var Match = {
 
     validarCreacionPartido : function (){
 
-        //var tamano = $("#tamano_cancha").find(":selected").data("tamano");
-        //
-        //if ( $("#equipo-1").find("p").size() != tamano){
-        //    alert("El equipo 1 no tiene los suficientes jugadores. Media pila papa!");
-        //    return false;
-        //}
-        //
-        //if ( $("#equipo-2").find("p").size() != tamano){
-        //    alert("El equipo 2 no tiene los suficientes jugadores. Media pila papa!");
-        //    return false;
-        //}
-        //
-        //if ( $("#cancha").val() == "" ){
-        //    alert("Tenes que ingresar alguna cancha papa. Yo se que el Campnou no esta disponible, pero en una de esas alguna cancha en San Telmo te puede interesar.");
-        //    return false;
-        //}
+        var tamano = $("#tamano_cancha").find(":selected").data("tamano");
+
+        if ( $("#cancha").val() == "" ){
+            alert("Tenes que ingresar alguna cancha papa. Yo se que el Campnou no esta disponible, pero en una de esas alguna cancha en San Telmo te puede interesar.");
+            return false;
+        }
+
+        if ( $("#equipo-1").find("p").size() != tamano){
+            alert("El equipo 1 no tiene los suficientes jugadores. Media pila papa!");
+            return false;
+        }
+
+        if ( $("#equipo-2").find("p").size() != tamano){
+            alert("El equipo 2 no tiene los suficientes jugadores. Media pila papa!");
+            return false;
+        }
     }
 
 }

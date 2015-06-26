@@ -41,11 +41,49 @@ body {
     color: red;
 }
 .jugadores-agregados p{
-    padding: 5px;
+    padding: 2px;
 }
 #profile-photo {
     margin: 0 auto;
-    width: 300px;
-    height: 300px;
+    width: 190px;
+    height: 170px;
 }
-
+.equipo-1-style {
+    width: 100%;
+    font-weight:bold;
+    color: white;
+    margin: 0 0 10px;
+    background: #94a872;
+    background: -moz-linear-gradient(top, #94a872 0%, #8ab66b 44%, #398235 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #94a872), color-stop(44%, #8ab66b), color-stop(100%, #398235));
+    background: -webkit-linear-gradient(top, #94a872 0%, #8ab66b 44%, #398235 100%);
+    background: -o-linear-gradient(top, #94a872 0%, #8ab66b 44%, #398235 100%);
+    background: -ms-linear-gradient(top, #94a872 0%, #8ab66b 44%, #398235 100%);
+    background: linear-gradient(to bottom, #94a872 0%, #8ab66b 44%, #398235 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94a872', endColorstr='#398235', GradientType=0);
+}
+.equipo-2-style {
+    width: 100%;
+    font-weight:bold;
+    color: white;
+    margin: 0 0 10px;
+    background: #ff6060;
+    background: -moz-linear-gradient(top,  #ff6060 0%, #c41303 92%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff6060), color-stop(92%,#c41303));
+    background: -webkit-linear-gradient(top,  #ff6060 0%,#c41303 92%);
+    background: -o-linear-gradient(top,  #ff6060 0%,#c41303 92%);
+    background: -ms-linear-gradient(top,  #ff6060 0%,#c41303 92%);
+    background: linear-gradient(to bottom,  #ff6060 0%,#c41303 92%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff6060', endColorstr='#c41303',GradientType=0 );
+}
+.jugador-style label {
+    width: 92%;
+    text-align: center;
+}
+.jugador-style button {
+    width: 5%;
+    font-weight:bold;
+    color: white;
+    background: transparent;
+    border: none;
+}

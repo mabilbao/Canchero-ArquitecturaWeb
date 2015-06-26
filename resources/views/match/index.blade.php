@@ -9,8 +9,7 @@
             </div>
         </div>
 
-
-        <form role="form" class="form" method="post" action="">
+        <form role="form" class="form partido" method="post" action="">
             <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
             <div class="row">
                 <div class="col-lg-6">
@@ -36,12 +35,12 @@
                 {{--</div>--}}
                 <div class="col-lg-6">
                     <label>Direccion de la cancha:</label>
-                    <div class="form-inline">
-                        <div class="form-group" style="width: 75%">
-                            <input type="text" id="cancha" class="form-control" style="width: 100%">
+                    <div class="input-group">
+                        <input type="text" id="cancha" class="form-control">
+                        <div class="input-group-btn">
+                            <a href="javascript:;" class="btn btn-default"
+                               data-toggle="modal" data-target="#myModalMap">Mapa</a>
                         </div>
-                        <a href="javascript:;" class="btn btn-default"
-                           data-toggle="modal" data-target="#myModalMap">Mapa</a>
                     </div>
                 </div>
             </div>
@@ -54,19 +53,31 @@
                             <input type="text" data-nombre="equipo-1" placeholder="Ej: Equipo-1" class="nombre-equipo" name="nombre_equipo_1">
                             (<span class="label_tamano">5</span> jugadores)
                         </label>
-                        <a href="javascript:;" class="form-control btn btn-success agregarJugador"
+                        <a href="javascript:;" class="form-control btn equipo-1-style agregarJugador"
                                data-toggle="modal" data-target="#myModal">Agregar Jugador</a>
                     </div>
-                    <div class="jugadores-agregados" data-color="btn-success" style="border: double; height: 200px">
+                    <div class="jugadores-agregados" style="border: double; height: 200px">
 
                         {{--Public--}}
                         {{--@foreach (array(1,2,3,4,5) as $nombre)--}}
-                            {{--<div><input type="text" class="text-center jugador btn-success" name="equipo-1[nombres]" value={{$nombre}} readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-1[mails]" value="martin.bilbao.mb@gmail.com"></div>--}}
+                            {{--<p class="jugador-style equipo-1-style">--}}
+                                {{--<label>--}}
+                                    {{--<span class="jugador" name="equipo-1[nombres]">{{$nombre}}</span>--}}
+                                    {{--<input type="hidden" name="equipo-1[mails]" value="martin.bilbao.mb@gmail.com">--}}
+                                {{--</label>--}}
+                                {{--<button type="button" class="borrar-jugador">X</button>--}}
+                            {{--</p>--}}
                         {{--@endforeach--}}
 
                         {{--Private--}}
                         {{--@foreach (array(1,2,3,4,5) as $nombre)--}}
-                            {{--<div><input type="text" class="text-center jugador btn-success" value="{{$nombre}}" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-1[]" value={{ $nombre }}></div>--}}
+                            {{--<p class="jugador-style equipo-1-style">--}}
+                                {{--<label>--}}
+                                    {{--<span class="jugador" name="equipo-1[nombres]">{{$nombre}}</span>--}}
+                                    {{--<input type="hidden" name="equipo-1[]" value={{ $nombre + 5 }}>--}}
+                                {{--</label>--}}
+                                {{--<button type="button" class="borrar-jugador">X</button>--}}
+                            {{--</p>--}}
                         {{--@endforeach--}}
 
                     </div>
@@ -78,19 +89,31 @@
                             <input type="text" data-nombre="equipo-2" placeholder="Ej: Equipo-2" class="nombre-equipo" name="nombre_equipo_2">
                             (<span class="label_tamano">5</span> jugadores)
                         </label>
-                        <a href="javascript:;" class="form-control btn btn-danger agregarJugador"
+                        <a href="javascript:;" class="form-control btn equipo-2-style agregarJugador"
                            data-toggle="modal" data-target="#myModal">Agregar Jugador</a>
                     </div>
-                    <div class="jugadores-agregados" data-color="btn-danger" style="border: double; height: 200px">
+                    <div class="jugadores-agregados" style="border: double; height: 200px">
 
                         {{--Public--}}
                         {{--@foreach (array(1,2,3,4,5) as $nombre)--}}
-                            {{--<div><input type="text" class="text-center jugador btn-danger" name="equipo-2[nombres]" value={{$nombre}} readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-2[mails]" value="martin.bilbao.mb@gmail.com"></div>--}}
+                            {{--<p class="jugador-style equipo-2-style">--}}
+                                {{--<label>--}}
+                                    {{--<span class="jugador" name="equipo-2[nombres]">{{$nombre}}</span>--}}
+                                    {{--<input type="hidden" name="equipo-2[mails]" value="martin.bilbao.mb@gmail.com">--}}
+                                {{--</label>--}}
+                                {{--<button type="button" class="borrar-jugador">X</button>--}}
+                            {{--</p>--}}
                         {{--@endforeach--}}
 
                         {{--Private--}}
-                        {{--@foreach (array(1,2,3,4,5) as $nombre)--}}
-                            {{--<div><input type="text" class="text-center jugador btn-danger" value="{{$nombre}}" readonly="readonly" style="width: 100%; margin: 0 0 10px; padding: 3px"><input type="hidden" name="equipo-2[]" value={{ $nombre + 5 }}></div>--}}
+                        {{--@foreach (array(1,2,3,4) as $nombre)--}}
+                            {{--<p class="jugador-style equipo-2-style">--}}
+                                {{--<label>--}}
+                                    {{--<span class="jugador" name="equipo-2[nombres]">{{$nombre}}</span>--}}
+                                    {{--<input type="hidden" name="equipo-2[]" value={{ $nombre + 5 }}>--}}
+                                {{--</label>--}}
+                                {{--<button type="button" class="borrar-jugador">X</button>--}}
+                            {{--</p>--}}
                         {{--@endforeach--}}
 
                     </div>
