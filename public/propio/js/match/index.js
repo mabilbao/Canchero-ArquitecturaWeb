@@ -122,6 +122,8 @@ var Match = {
 
                         Match.limpiarModal();
                         $('#myModal').modal('toggle');
+                    }else{
+                        alert("Lo siento, tuvimos un error al intentar guardar a tu jugador. - Error: " + response.message);
                     }
                 }
             });
