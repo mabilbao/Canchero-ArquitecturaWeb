@@ -1,4 +1,4 @@
-<form method="post" role="post" id="crear-jugador">
+<form method="post" role="post">
     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
     <div class="modal-header">
         <div class="row">
@@ -78,9 +78,9 @@
     </div>
     <div class="modal-footer">
         @if ( Auth::check() )
-            <button type="submit" id="submit" class="btn btn-success">Guardar</button>
+            <button type="button" id="submit" class="btn btn-success crear-jugador">Guardar</button>
         @else
-            <button type="button" class="btn btn-success guardar-jugador-simple" >Agregar</button>
+            <button type="button" class="btn btn-success guardar-jugador-simple">Agregar</button>
         @endif
         <button type="button" id="cancelar" class="btn btn-danger cancelar-jugador-simple" data-dismiss="modal">Cancelar</button>
     </div>

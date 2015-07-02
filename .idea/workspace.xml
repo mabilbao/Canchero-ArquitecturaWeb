@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f482d2f2-10e4-4b48-9e4a-39ce6f71eb93" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/player/add-simple.blade.php" afterPath="$PROJECT_DIR$/resources/views/player/add-simple.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/match/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/match/index.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/propio/js/match/index.js" afterPath="$PROJECT_DIR$/public/propio/js/match/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="arq.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,34 +34,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/propio/js/match/index.js">
+      <file leaf-file-name="layout.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2781" max-vertical-offset="3504">
-              <caret line="191" column="12" selection-start-line="191" selection-start-column="12" selection-end-line="191" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.87055016" vertical-offset="950" max-vertical-offset="1680">
+              <caret line="93" column="17" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/match/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7152104" vertical-offset="1542" max-vertical-offset="3024">
-              <caret line="124" column="39" selection-start-line="116" selection-start-column="49" selection-end-line="124" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MatchController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MatchController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.44" vertical-offset="336" max-vertical-offset="2816">
-              <caret line="42" column="140" selection-start-line="42" selection-start-column="140" selection-end-line="42" selection-end-column="140" />
-              <folding>
-                <element signature="e#39#60#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -105,12 +87,12 @@
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PlayerController.php" />
         <option value="$PROJECT_DIR$/resources/views/player/players.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/player/add-simple.blade.php" />
         <option value="$PROJECT_DIR$/public/propio/js/player/players.js" />
-        <option value="$PROJECT_DIR$/resources/views/layout.blade.php" />
-        <option value="$PROJECT_DIR$/public/propio/js/match/index.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MatchController.php" />
         <option value="$PROJECT_DIR$/resources/views/match/index.blade.php" />
+        <option value="$PROJECT_DIR$/public/propio/js/match/index.js" />
+        <option value="$PROJECT_DIR$/resources/views/player/add-simple.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layout.blade.php" />
       </list>
     </option>
   </component>
@@ -666,13 +648,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/player/add-simple.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.836767" vertical-offset="816" max-vertical-offset="1472">
-          <caret line="84" column="34" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/propio/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
@@ -684,6 +659,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36245954" vertical-offset="0" max-vertical-offset="1056">
           <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -717,35 +693,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/player/add-simple.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28478965" vertical-offset="432" max-vertical-offset="1504">
-          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.050713155" vertical-offset="0" max-vertical-offset="1472">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/match/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.252427" vertical-offset="0" max-vertical-offset="3024">
+          <caret line="87" column="30" selection-start-line="79" selection-start-column="29" selection-end-line="87" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/propio/js/match/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2781" max-vertical-offset="3504">
-          <caret line="191" column="12" selection-start-line="191" selection-start-column="12" selection-end-line="191" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.6967341" vertical-offset="1056" max-vertical-offset="3520">
+          <caret line="94" column="29" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MatchController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.44" vertical-offset="336" max-vertical-offset="2816">
-          <caret line="42" column="140" selection-start-line="42" selection-start-column="140" selection-end-line="42" selection-end-column="140" />
+        <state vertical-scroll-proportion="0.36245954" vertical-offset="336" max-vertical-offset="2816">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
             <element signature="e#39#60#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/match/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7152104" vertical-offset="1542" max-vertical-offset="3024">
-          <caret line="124" column="39" selection-start-line="116" selection-start-column="49" selection-end-line="124" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.87055016" vertical-offset="950" max-vertical-offset="1680">
+          <caret line="93" column="17" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
           <folding />
         </state>
       </provider>

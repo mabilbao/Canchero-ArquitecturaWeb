@@ -77,15 +77,15 @@
                         {{--@endforeach--}}
 
                         {{--Private--}}
-                        {{--@foreach (array(1,2,3,4,5) as $nombre)--}}
-                            {{--<p class="jugador-style equipo-1-style">--}}
-                                {{--<label>--}}
-                                    {{--<span class="jugador">{{$nombre}}</span>--}}
-                                    {{--<input type="hidden" name="equipo-1[ids][]" value={{ $nombre }}>--}}
-                                {{--</label>--}}
-                                {{--<button type="button" class="borrar-jugador">X</button>--}}
-                            {{--</p>--}}
-                        {{--@endforeach--}}
+                        @foreach (array(1,2,3,4,5) as $nombre)
+                            <p class="jugador-style equipo-1-style">
+                                <label>
+                                    <span class="jugador">{{$nombre}}</span>
+                                    <input type="hidden" name="equipo-1[ids][]" value={{ $nombre }}>
+                                </label>
+                                <button type="button" class="borrar-jugador">X</button>
+                            </p>
+                        @endforeach
 
                     </div>
                 </div>
@@ -114,15 +114,15 @@
                         {{--@endforeach--}}
 
                         {{--Private--}}
-                        {{--@foreach (array(1,2,3,4) as $nombre)--}}
-                            {{--<p class="jugador-style equipo-2-style">--}}
-                                {{--<label>--}}
-                                    {{--<span class="jugador">{{$nombre}}</span>--}}
-                                    {{--<input type="hidden" name="equipo-2[ids][]" value={{ $nombre + 5 }}>--}}
-                                {{--</label>--}}
-                                {{--<button type="button" class="borrar-jugador">X</button>--}}
-                            {{--</p>--}}
-                        {{--@endforeach--}}
+                        @foreach (array(1,2,3,4) as $nombre)
+                            <p class="jugador-style equipo-2-style">
+                                <label>
+                                    <span class="jugador">{{$nombre}}</span>
+                                    <input type="hidden" name="equipo-2[ids][]" value={{ $nombre + 5 }}>
+                                </label>
+                                <button type="button" class="borrar-jugador">X</button>
+                            </p>
+                        @endforeach
 
                     </div>
                 </div>

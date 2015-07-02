@@ -6,7 +6,7 @@ var Match = {
     init : function(){
         $('.container').on('change', '#tamano_cancha', Match.cambiarTamanoCancha);
         $('.container').on('click', '.agregarJugador', Match.verificarAgregado);
-        $('#myModal').on('submit', '#crear-jugador', Match.altaJugador);
+        $('#myModal').on('click', '.crear-jugador', Match.altaJugador);
         $('.container').on('click', '.guardar-jugador-simple', Match.agregarJugador);
         $('.container').on('click', '.borrar-jugador', Match.borrarJugador);
         $('.container').on('click', '.cancelar-jugador-simple', Match.limpiarModal);
@@ -67,6 +67,7 @@ var Match = {
     },
 
     altaJugador : function(){
+
         var nombre = $("[name='nombre']").val();
         var apodo = $("[name='apodo']").val();
 
@@ -78,8 +79,8 @@ var Match = {
             return false;
         }else{
 
-            event.preventDefault();
-            var formData = new FormData($(this)[0]);
+            //event.preventDefault();
+            var formData = new FormData($(this).parents("form:first")[0]);
 
             var nombreFinal;
             if ( apodo == ""){

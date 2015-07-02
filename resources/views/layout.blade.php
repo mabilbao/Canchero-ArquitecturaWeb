@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap-theme.min.css">
 
         <link rel="stylesheet" href="/propio/css/global.css">
+
     </head>
     <div id="background"></div>
     <body>
@@ -81,6 +82,16 @@
         {{--Bootstrap --}}
         <!-- Latest compiled and minified JavaScript -->
         <script src="/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- cdn for modernizr, if you haven't included it already -->
+        <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+        <!-- polyfiller file to detect and load polyfills -->
+        <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+        <script>
+            webshims.setOptions('waitReady', false);
+            webshims.setOptions('forms-ext', {types: 'date'});
+            webshims.polyfill('forms forms-ext');
+        </script>
 
         {{--Cotenido javascript para cada pagina en particualar--}}
         @yield('javascript')
