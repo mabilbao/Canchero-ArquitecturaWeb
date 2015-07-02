@@ -32,7 +32,7 @@ class MatchController extends Controller {
 
                 // Creacion del equipo 1
                 $equipo_1 = new Equipo();
-                $equipo_1->nombre = $post["nombre_equipo_1"] == "" ? "Equipo 1" : $post["nombre_equipo_1"];
+                $equipo_1->nombre = isset($post["nombre_equipo_1"]) && $post["nombre_equipo_1"] != "" ? $post["nombre_equipo_1"] : "Equipo 1";
                 $equipo_1->save();
                 //Agrego jugadores al equipo 1
 
@@ -40,7 +40,7 @@ class MatchController extends Controller {
 
                 // Creacion del equipo 2
                 $equipo_2 = new Equipo();
-                $equipo_2->nombre = $post["nombre_equipo_2"] == "" ? "Equipo 2" : $post["nombre_equipo_2"];
+                $equipo_2->nombre = isset($post["nombre_equipo_2"]) && $post["nombre_equipo_2"] != "" ? $post["nombre_equipo_2"] : "Equipo 2";
                 $equipo_2->save();
                 //Agrego jugadores al equipo 2
                 $equipo_2->jugadores()->sync($post["equipo-2"]["ids"]);
