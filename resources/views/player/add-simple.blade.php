@@ -15,27 +15,31 @@
                         <input name="file" type="file" value="upload" id="file" class="hide" />
                         <img src="/propio/image/profile1.png" class="img-rounded img-responsive text-center"
                              id="profile-photo" alt="Responsive image">
-                        <button id="editar-imagen-perfil" class="btn btn-primary form-control">Editar</button>
+                        <button type="button" id="editar-imagen-perfil" class="btn btn-primary form-control">Editar</button>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group" >
-                                <label class="control-label" for="nombre">Nombre:</label>
+                                <label class="control-label" for="nombre">
+                                    Nombre:
+                                </label>
+                                <span id="inputErrorNombre" class="error-msg sr-only">Nombre y/o apodo al menos!</span>
                                 <input type="text" name="nombre" class="form-control" aria-describedby="inputErrorNombre">
-                                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                                <span id="inputErrorNombre" class="sr-only">(error)</span>
+                                <span class="glyphicon glyphicon-remove form-control-feedback sr-only" aria-hidden="true"></span>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="control-label" for="apodo">Apodo:</label>
+                                <label class="control-label" for="apodo">
+                                    Apodo:
+                                </label>
+                                <span id="inputErrorApodo" class="error-msg sr-only">Nombre y/o apodo al menos!</span>
                                 <input type="text" name="apodo" class="form-control" aria-describedby="inputErrorApodo">
-                                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                                <span id="inputErrorApodo" class="sr-only">(error)</span>
+                                <span class="glyphicon glyphicon-remove form-control-feedback sr-only" aria-hidden="true"></span>
                             </div>
                         </div>
                     </div>
@@ -43,9 +47,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="control-label" for="email">Mail:</label>
-                                <input type="email" name="email" class="form-control" aria-describedby="inputErrorEmail">
-                                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                                <span id="inputErrorEmail" class="sr-only">(error)</span>
+                                <input type="email" name="email" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -55,10 +57,12 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="form-group">
-                        <label class="control-label" for="apodo">Apodo:</label>
+                        <label class="control-label" for="apodo">
+                            Apodo:
+                        </label>
+                        <span id="inputErrorApodo" class="error-msg sr-only">Apodo Obligatorio!</span>
                         <input type="text" name="apodo" class="form-control" aria-describedby="inputErrorApodo">
-                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                        <span id="inputErrorApodo" class="sr-only">(error)</span>
+                        <span class="glyphicon glyphicon-remove form-control-feedback sr-only" aria-hidden="true"></span>
                     </div>
                 </div>
             </div>

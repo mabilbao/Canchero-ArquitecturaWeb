@@ -71,9 +71,10 @@ var Match = {
         var apodo = $("[name='apodo']").val();
 
         if ( nombre == "" && apodo == "" ){
-            $("[name='apodo']").parents(".form-group:first").addClass("has-error").addClass("has-feedback");
-            $("[name='nombre']").parents(".form-group:first").addClass("has-error").addClass("has-feedback");
-            //$("[name='email']").parents(".form-group:first").addClass("has-error").addClass("has-feedback");
+            $("[name='apodo']").parents(".form-group:first").addClass("has-error").addClass("has-feedback")
+                .find('span').removeClass("sr-only");
+            $("[name='nombre']").parents(".form-group:first").addClass("has-error").addClass("has-feedback")
+                .find('span').removeClass("sr-only");;
             return false;
         }else{
 
@@ -107,9 +108,8 @@ var Match = {
 
                         var jugador = "<p class=\"jugador-style " + style + "\">"
                             + "<label>"
-                            + "<span class=\"jugador\" name=\"" + nombreEquipo + "[nombres]\">"
-                            + nombreFinal + "</span>"
-                            + "<input type=\"hidden\" name=\"" + nombreEquipo + "[]\" value=\"" + response.jugador_id + "\">"
+                            + "<span class=\"jugador\">" + nombreFinal + "</span>"
+                            + "<input type=\"hidden\" name=\"" + nombreEquipo + "[ids][]\" value=\"" + response.jugador_id + "\">"
                             + "</label><button type=\"button\" class=\"borrar-jugador\">X</button></p>"
 
                         Match.equipo.append(jugador);
@@ -150,11 +150,11 @@ var Match = {
 
             var jugador = "<p class=\"jugador-style " + style + "\">"
                 + "<label>"
-                + "<span class=\"jugador\" name=\"" + nombreEquipo + "[nombres]\">"
-                + apodo + "</span>";
+                + "<span class=\"jugador\">" + apodo + "</span>"
+                + "<input type=\"hidden\" name=\"" + nombreEquipo + "[nombres][]\" value=\"" + apodo + "\">";
 
             if ( $("[name='email']").val() != "" ) {
-                jugador = jugador + "<input type=\"hidden\" name=\"" + nombreEquipo + "[mails]\" value=\""
+                jugador = jugador + "<input type=\"hidden\" name=\"" + nombreEquipo + "[mails][]\" value=\""
                 + $("[name='email']").val() + "\">";
             }
 
@@ -173,9 +173,11 @@ var Match = {
 
     limpiarModal : function(){
         $("[name='nombre']").val("");
-        $("[name='nombre']").parents(".form-group:first").removeClass("has-error").removeClass("has-feedback");
+        $("[name='nombre']").parents(".form-group:first").removeClass("has-error").removeClass("has-feedback")
+            .find("span").addClass("sr-only");
         $("[name='apodo']").val("");
-        $("[name='apodo']").parents(".form-group:first").removeClass("has-error").removeClass("has-feedback");
+        $("[name='apodo']").parents(".form-group:first").removeClass("has-error").removeClass("has-feedback")
+            .find("span").addClass("sr-only");
         $("[name='email']").val("");
         $("[name='email']").parents(".form-group:first").removeClass("has-error").removeClass("has-feedback");
         $('#profile-photo').attr('src', "/propio/image/profile1.png");

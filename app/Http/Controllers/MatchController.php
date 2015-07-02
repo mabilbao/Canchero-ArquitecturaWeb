@@ -5,6 +5,7 @@ use App\TamanoCancha;
 use App\Partido;
 use App\Jugador;
 use App\Equipo;
+use Log;
 use Illuminate\Support\Facades\Session;
 
 
@@ -32,14 +33,14 @@ class MatchController extends Controller {
                 $equipo_1->save();
                 //Agrego jugadores al equipo 1
 
-                $equipo_1->jugadores()->sync($post["equipo-1"]);
+                $equipo_1->jugadores()->sync($post["equipo-1"]["ids"]);
 
                 // Creacion del equipo 2
                 $equipo_2 = new Equipo();
                 $equipo_2->nombre = $post["nombre_equipo_2"] == "" ? "Equipo 2" : $post["nombre_equipo_2"];
                 $equipo_2->save();
                 //Agrego jugadores al equipo 2
-                $equipo_2->jugadores()->sync($post["equipo-2"]);
+                $equipo_2->jugadores()->sync($post["equipo-2"]["ids"]);
 
                 //Creacion del partido
                 $partido = new Partido();
@@ -55,31 +56,31 @@ class MatchController extends Controller {
 
                 //Envio mail con informacion
                 //Equipo 1
-                foreach ( $post["equipo-1"] as $j ) {
+                foreach ( $post["equipo-1"]["ids"] as $j ) {
                     $jugador = Jugador::find( $j );
                     if ( $jugador && $jugador->email ) {
                         $mails_equipo_1[] = $jugador->email;
                     }
                     if ( $jugador ){
                         if ( $jugador->apodo ){
-                            $nombre_jugadores_equipo_1 = $jugador->apodo;
+                            $nombre_jugadores_equipo_1[] = $jugador->apodo;
                         } else {
-                            $nombre_jugadores_equipo_1 = $jugador->nombre;
+                            $nombre_jugadores_equipo_1[] = $jugador->nombre;
                         }
                     }
                     $jugador = null;
                 }
                 //Equipo 2
-                foreach ( $post["equipo-2"] as $j ) {
+                foreach ( $post["equipo-2"]["ids"] as $j ) {
                     $jugador = Jugador::find( $j );
                     if ( $jugador && $jugador->email ) {
                         $mails_equipo_2[] = $jugador->email;
                     }
                     if ( $jugador ) {
                         if ($jugador && $jugador->apodo) {
-                            $nombre_jugadores_equipo_2 = $jugador->apodo;
+                            $nombre_jugadores_equipo_2[] = $jugador->apodo;
                         } else {
-                            $nombre_jugadores_equipo_2 = $jugador->nombre;
+                            $nombre_jugadores_equipo_2[] = $jugador->nombre;
                         }
                     }
                     $jugador = null;
@@ -135,6 +136,30 @@ class MatchController extends Controller {
                                        $fecha){
 
         //Logica para armar el mail a enviar
+        Log::info("***********************************************************************************************");
+        Log::info("Partido:");
+        Log::info("Direccion: {$direccion}");
+        Log::info("Fecha: {$fecha->format('d-m-Y')}");
+        Log::info("-------------------------------------");
+        Log::info("Nombre del equipo 1: {$equipo_1_nombre}");
+        Log::info("Jugadores:");
+        for ( $i = 0 ; $i < count($nombre_jugadores_equipo_1) ; $i++ ) {
+            Log::info("Nombre: {$nombre_jugadores_equipo_1[$i]}");
+        }
+        Log::info("Nombre del equipo 2: {$equipo_2_nombre}");
+        Log::info("Jugadores:");
+        for ( $i = 0 ; $i < count($nombre_jugadores_equipo_2) ; $i++ ) {
+            Log::info("Nombre: {$nombre_jugadores_equipo_2[$i]}");
+        }
+
+        Log::info("-------------------------------------");
+        Log::info("Jugadores a notificar:");
+        for ( $i = 0 ; $i < count($mails_equipo_1) ; $i++ ) {
+            Log::info("Mail: {$mails_equipo_1[$i]}");
+        }
+        for ( $i = 0 ; $i < count($mails_equipo_2) ; $i++ ) {
+            Log::info("Mail: {$mails_equipo_2[$i]}");
+        }
 
     }
 }

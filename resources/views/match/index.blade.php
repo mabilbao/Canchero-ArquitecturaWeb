@@ -51,7 +51,7 @@
                     <div class="form-group text-center">
                         <label>Equipo:
                             <input type="text" data-nombre="equipo-1" placeholder="Ej: Equipo-1" class="nombre-equipo" name="nombre_equipo_1">
-                            (<span class="label_tamano">5</span> jugadores)
+                            <small>(<span class="label_tamano">5</span> jugadores)</small>
                         </label>
                         <a href="javascript:;" class="form-control btn equipo-1-style agregarJugador"
                                data-toggle="modal" data-target="#myModal">Agregar Jugador</a>
@@ -62,23 +62,24 @@
                         {{--@foreach (array(1,2,3,4,5) as $nombre)--}}
                             {{--<p class="jugador-style equipo-1-style">--}}
                                 {{--<label>--}}
-                                    {{--<span class="jugador" name="equipo-1[nombres]">{{$nombre}}</span>--}}
-                                    {{--<input type="hidden" name="equipo-1[mails]" value="martin.bilbao.mb@gmail.com">--}}
+                                    {{--<span class="jugador">{{$nombre}}</span>--}}
+                                    {{--<input type="hidden" name="equipo-1[nombres][]" value="{{$nombre}}">--}}
+                                    {{--<input type="hidden" name="equipo-1[mails][]" value="martin.bilbao.mb@gmail.com">--}}
                                 {{--</label>--}}
                                 {{--<button type="button" class="borrar-jugador">X</button>--}}
                             {{--</p>--}}
                         {{--@endforeach--}}
 
                         {{--Private--}}
-                        {{--@foreach (array(1,2,3,4,5) as $nombre)--}}
-                            {{--<p class="jugador-style equipo-1-style">--}}
-                                {{--<label>--}}
-                                    {{--<span class="jugador" name="equipo-1[nombres]">{{$nombre}}</span>--}}
-                                    {{--<input type="hidden" name="equipo-1[]" value={{ $nombre + 5 }}>--}}
-                                {{--</label>--}}
-                                {{--<button type="button" class="borrar-jugador">X</button>--}}
-                            {{--</p>--}}
-                        {{--@endforeach--}}
+                        @foreach (array(1,2,3,4,5) as $nombre)
+                            <p class="jugador-style equipo-1-style">
+                                <label>
+                                    <span class="jugador">{{$nombre}}</span>
+                                    <input type="hidden" name="equipo-1[ids][]" value={{ $nombre }}>
+                                </label>
+                                <button type="button" class="borrar-jugador">X</button>
+                            </p>
+                        @endforeach
 
                     </div>
                 </div>
@@ -87,7 +88,7 @@
                     <div class="form-group text-center">
                         <label>Equipo:
                             <input type="text" data-nombre="equipo-2" placeholder="Ej: Equipo-2" class="nombre-equipo" name="nombre_equipo_2">
-                            (<span class="label_tamano">5</span> jugadores)
+                            <small>(<span class="label_tamano">5</span> jugadores)</small>
                         </label>
                         <a href="javascript:;" class="form-control btn equipo-2-style agregarJugador"
                            data-toggle="modal" data-target="#myModal">Agregar Jugador</a>
@@ -98,23 +99,24 @@
                         {{--@foreach (array(1,2,3,4,5) as $nombre)--}}
                             {{--<p class="jugador-style equipo-2-style">--}}
                                 {{--<label>--}}
-                                    {{--<span class="jugador" name="equipo-2[nombres]">{{$nombre}}</span>--}}
-                                    {{--<input type="hidden" name="equipo-2[mails]" value="martin.bilbao.mb@gmail.com">--}}
+                                    {{--<span class="jugador">{{$nombre}}</span>--}}
+                                    {{--<input type="hidden" name="equipo-2[nombres][]" value="{{$nombre}}">--}}
+                                    {{--<input type="hidden" name="equipo-2[mails][]" value="martin.bilbao.mb@gmail.com">--}}
                                 {{--</label>--}}
                                 {{--<button type="button" class="borrar-jugador">X</button>--}}
                             {{--</p>--}}
                         {{--@endforeach--}}
 
                         {{--Private--}}
-                        {{--@foreach (array(1,2,3,4) as $nombre)--}}
-                            {{--<p class="jugador-style equipo-2-style">--}}
-                                {{--<label>--}}
-                                    {{--<span class="jugador" name="equipo-2[nombres]">{{$nombre}}</span>--}}
-                                    {{--<input type="hidden" name="equipo-2[]" value={{ $nombre + 5 }}>--}}
-                                {{--</label>--}}
-                                {{--<button type="button" class="borrar-jugador">X</button>--}}
-                            {{--</p>--}}
-                        {{--@endforeach--}}
+                        @foreach (array(1,2,3,4) as $nombre)
+                            <p class="jugador-style equipo-2-style">
+                                <label>
+                                    <span class="jugador">{{$nombre}}</span>
+                                    <input type="hidden" name="equipo-2[ids][]" value={{ $nombre + 5 }}>
+                                </label>
+                                <button type="button" class="borrar-jugador">X</button>
+                            </p>
+                        @endforeach
 
                     </div>
                 </div>
@@ -151,15 +153,13 @@
                 <div class="modal-content modal-agregar-jugador">
                     <div class="modal-header">
                         <div class="row">
-                            <div class="col-lg-12 title">
+                            <div class="col-lg-12 title text-center">
                                 <h1>Direccion de la cancha:</h1>
                             </div>
                         </div>
                     </div>
                     <div class="modal-body">
-                        <div class="map_canvas" style="width: 570px;
-                          height: 300px;
-                          margin: 10px 20px 10px 0;"></div>
+                        <div class="map_canvas img-responsive"></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Volver</button>

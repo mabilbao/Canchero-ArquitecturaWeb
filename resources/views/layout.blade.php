@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="shortcut icon" href="/propio/image/pelota-icono-2.png" />
+        <title>Canchero</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta id="application-environment" data-environment="{{App::environment()}}" />
+
         {{--Bootstrap --}}
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap.min.css">
@@ -8,12 +14,6 @@
         <link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap-theme.min.css">
 
         <link rel="stylesheet" href="/propio/css/global.css">
-
-        <title>Canchero</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta id="application-environment" data-environment="{{App::environment()}}" />
-
     </head>
     <div id="background"></div>
     <body>
