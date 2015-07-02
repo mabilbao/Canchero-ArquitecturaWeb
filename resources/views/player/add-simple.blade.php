@@ -82,6 +82,6 @@
         @else
             <button type="button" class="btn btn-success guardar-jugador-simple" >Agregar</button>
         @endif
-        <button type="button" class="btn btn-danger cancelar-jugador-simple" data-dismiss="modal">Cancelar</button>
+        <button type="button" id="cancelar" class="btn btn-danger cancelar-jugador-simple" data-dismiss="modal">Cancelar</button>
     </div>
 </form>

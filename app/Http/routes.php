@@ -21,6 +21,7 @@ Route::group(array('prefix'=>'match'),function() {
 });
 
 
+Route::any('/players', "PlayerController@players");
 Route::group(array('prefix'=>'player'),function() {
     Route::any('/add', "PlayerController@add");
     Route::any('/register', "PlayerController@register");

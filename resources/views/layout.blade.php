@@ -36,8 +36,8 @@
                                 <li><a href="/">Home</a></li>
                                 <li><a href="/match/">Organizar partido</a></li>
                                 @if ( Auth::check() )
-                                    <li><a href="/">Historial de Partidos</a></li>
-                                    <li><a href="/">Mis jugadores</a></li>
+                                    <li><a href="/">Historial de Partidos (Proximamente!)</a></li>
+                                    <li><a href="/players">Mis jugadores</a></li>
                                 @endif
                             </ul>
 

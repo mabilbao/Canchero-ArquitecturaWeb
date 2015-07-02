@@ -12,7 +12,7 @@
         <form role="form" class="form partido" method="post" action="">
             <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-3">
                     <div class="form-group">
                         <label>Tipo de Cancha:*</label>
                         <select name="tamano_cancha" id="tamano_cancha" class="form-control">
@@ -20,6 +20,12 @@
                                 <option value="{{$keytc}}" data-tamano="{{$valuetc->tamano}}">{{$valuetc->nombre}}</option>
                             @endforeach
                         </select>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <label>Fecha:</label>
+                        <input type="datetime-local" id="fecha" class="form-control" name="fecha" placeholder="Fecha">
                     </div>
                 </div>
                 {{--<div class="col-lg-4">--}}

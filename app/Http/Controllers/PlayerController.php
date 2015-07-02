@@ -2,6 +2,7 @@
 
 use Log;
 use App\Jugador;
+use App\User;
 
 class PlayerController extends Controller {
 
@@ -48,6 +49,19 @@ class PlayerController extends Controller {
             \DB::rollback();
             return \Response::json(['success' => false, 'message' => $e->getMessage()]);
         }
+    }
+
+    public function players(){
+
+        $data = array();
+        $user = User::find(\Auth::user()->id);
+
+        $jugadores = $user->jugadores;
+        if (count($jugadores) > 0 ){
+            $data["jugadores"] = $jugadores;
+        }
+
+        return \View::make('/player/players', $data);
     }
 
 }

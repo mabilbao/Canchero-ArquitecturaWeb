@@ -138,7 +138,8 @@ var Match = {
         var nombreEquipo = Match.equipo.parents(".equipo").find(".nombre-equipo").data("nombre");
 
         if ( apodo == "" ) {
-            $("[name='apodo']").parents(".form-group:first").addClass("has-error").addClass("has-feedback");
+            $("[name='apodo']").parents(".form-group:first").addClass("has-error").addClass("has-feedback")
+                .find('span').removeClass("sr-only");
             return false;
         }else{
 
@@ -186,6 +187,11 @@ var Match = {
     validarCreacionPartido : function (){
 
         var tamano = $("#tamano_cancha").find(":selected").data("tamano");
+
+        if ( $("#fecha").val() == "" ){
+            alert("Tenes que ingresar alguna fecha!");
+            return false;
+        }
 
         if ( $("#cancha").val() == "" ){
             alert("Tenes que ingresar alguna cancha papa. Yo se que el Campnou no esta disponible, pero en una de esas alguna cancha en San Telmo te puede interesar.");

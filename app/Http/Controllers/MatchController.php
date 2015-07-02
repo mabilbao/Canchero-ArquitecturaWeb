@@ -5,6 +5,7 @@ use App\TamanoCancha;
 use App\Partido;
 use App\Jugador;
 use App\Equipo;
+use App\User;
 use Log;
 use Illuminate\Support\Facades\Session;
 
@@ -27,6 +28,8 @@ class MatchController extends Controller {
 
             if ( \Auth::check() ) {
 
+                $user = User::find(\Auth::user()->id);
+
                 // Creacion del equipo 1
                 $equipo_1 = new Equipo();
                 $equipo_1->nombre = $post["nombre_equipo_1"] == "" ? "Equipo 1" : $post["nombre_equipo_1"];
@@ -42,13 +45,16 @@ class MatchController extends Controller {
                 //Agrego jugadores al equipo 2
                 $equipo_2->jugadores()->sync($post["equipo-2"]["ids"]);
 
+                $user->jugadores()->attach($post["equipo-1"]["ids"]);
+                $user->jugadores()->attach($post["equipo-2"]["ids"]);
+
                 //Creacion del partido
                 $partido = new Partido();
                 $partido->user_id = \Auth::user()->id;
                 $partido->cancha_id = null;
                 $partido->equipo_1_id = $equipo_1->equipo_id;
                 $partido->equipo_2_id = $equipo_2->equipo_id;
-                $partido->fecha = new \DateTime();
+                $partido->fecha = new \DateTime($post["fecha"]);
                 $partido->resultado_equipo_1 = null;
                 $partido->resultado_equipo_2 = null;
                 $partido->direccion = $post["direccion"];
